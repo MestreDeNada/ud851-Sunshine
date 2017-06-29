@@ -17,10 +17,12 @@ package com.example.android.sunshine;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a field to store the weather display TextView
+    private TextView mWeatherDisplayTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forecast);
 
         // TODO (2) Use findViewById to get a reference to the weather display TextView
+        mWeatherDisplayTextView = (TextView) findViewById(R.id.tv_weather_data);
 
         // TODO (3) Create an array of Strings that contain fake weather data
+        String[] dummyWeatherData = {
+                "Today, June 21 - Clear - 95°F / 65°F",
+                "Tomorrow - Partly Cloudy - 95°F / 60°F",
+                "Friday - Thunderstorms - 75°F / 50°F",
+                "Saturday - Thunderstorms - 66°F / 47°F",
+                "Sunday - Rainy - 76°F / 58°F",
+                "Monday - Partly Cloudy - 75°F / 60°F",
+                "Tue, June 27 - Clear - 76°F / 68°F",
+                "Wed, June 28 - Clear - 89°F / 75°F",
+                "Thu, June 29 - Clear - 90°F / 81°F",
+                "Fri, June 30 - Clear - 101°F / 89°F",
+                "Sat, July 01 - Clear - 96°F / 77°F",
+                "Sun, July 02 - Clear - 96°F / 78°F",
+                "Mon, July 03 - Clear - 85°F / 70°F",
+        };
 
         // TODO (4) Append each String from the fake weather data array to the TextView
+        for(String dummyWeatherDay : dummyWeatherData){
+            mWeatherDisplayTextView.append(dummyWeatherDay + "\n\n\n");
+        }
     }
 }
